@@ -52,7 +52,7 @@
             $slider.find('.next').click(function () {
                 that.next();
             });
-            this.auto();
+            that.auto();
         },
         auto: function () {
             timer = setInterval(function () {

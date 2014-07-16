@@ -1,0 +1,4 @@
+Slider
+======
+
+A jQuery Slider

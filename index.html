@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jQuery Slider</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/slider.css">
+    <style>
+        * {margin: 0; padding: 0; border: 0}
+        html {background-color: #cccccc;}
+        #slider {box-shadow: #888888 0px 15px 60px 10px}
+    </style>
+</head>
+<body>
+<div id="slider">
+    <div class="slides">
+        <img class="image1" src="images/0000ff.png">
+        <img class="image2" src="images/00ffff.png">
+        <img class="image3" src="images/00ff00.png">
+        <img class="image4" src="images/ffff00.png">
+        <img class="image5" src="images/ff0000.png">
+        <img class="image6" src="images/ff00ff.png">
+    </div>
+    <div class="prev"></div>
+    <div class="next"></div>
+    <div class="position"></div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/slider.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        jQuery("#slider").slider({delay: 1000, interval: 5000});
+    });
+</script>
+</body>
+</html>

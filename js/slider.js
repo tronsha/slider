@@ -35,10 +35,10 @@
                     that.show(slide);
                 });
                 if (slide == that.settings.slide) {
-                    $(element).css('opacity', '1');
+                    $(element).css('opacity', '1').css('z-index', '501');
                     $point.addClass('active');
                 } else {
-                    $(element).css('opacity', '0');
+                    $(element).css('opacity', '0').css('z-index', '500');
                 }
             });
             $slider.hover(function () {

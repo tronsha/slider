@@ -32,7 +32,7 @@
                 $position.append('<div class="points point' + slide + '"></div>');
                 var $point = $position.find('.point' + slide);
                 $point.click(function () {
-                    that.goto(slide);
+                    that.show(slide);
                 });
                 if (slide == that.settings.slide) {
                     $(element).css('opacity', '1');
@@ -61,19 +61,19 @@
         },
         next: function () {
             if (that.settings.slide < that.settings.slides) {
-                that.goto(that.settings.slide + 1);
+                that.show(that.settings.slide + 1);
             } else {
-                that.goto(1);
+                that.show(1);
             }
         },
         prev: function () {
             if (that.settings.slide > 1) {
-                that.goto(that.settings.slide - 1);
+                that.show(that.settings.slide - 1);
             } else {
-                that.goto(that.settings.slides);
+                that.show(that.settings.slides);
             }
         },
-        goto: function (slide) {
+        show: function (slide) {
             $('.image' + that.settings.slide).css('z-index', '500').animate({opacity: 0}, that.settings.delay);
             $(that.element).find('.point' + that.settings.slide).removeClass('active');
             that.settings.slide = slide;

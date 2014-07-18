@@ -5,6 +5,7 @@
     margin-top: 100px;
     height: 400px;
     width: 640px;
+    max-width: 100%;
 }
 
 #slider .slides {
@@ -17,6 +18,11 @@
     position: absolute;
     height: 100%;
     width: 100%;
+    z-index: 500;
+}
+
+#slider .slides .active {
+    z-index: 510;
 }
 
 #slider .next,

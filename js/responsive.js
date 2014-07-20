@@ -8,6 +8,7 @@ window.onresize = function () {
 
 var sliderResize = function() {
     var $slider = jQuery('#slider');
+    $slider.css('max-width', '100%');
     var $sliderPrev = jQuery('#slider .prev');
     var $sliderNext = jQuery('#slider .next');
     var $activeImage = jQuery('#slider .slides .active');
@@ -17,7 +18,6 @@ var sliderResize = function() {
     var sliderHeight = sliderWidth * imagesHeight / imagesWidth;
     var buttonTop = sliderHeight / 2 - 7;
     $slider.height(sliderHeight);
-    $slider.css('max-width', '100%');
     $sliderPrev.css('top', buttonTop);
     $sliderNext.css('top', buttonTop);
 }

@@ -57,13 +57,13 @@
 
 #slider .position .points {
     background-color: #000000;
-    border: 1px solid #000000;
     border-radius: 5px;
+    box-shadow: 0 0 2px 1px #000000;
     cursor: pointer;
     display: inline-block;
     height: 8px;
     width: 8px;
-    margin: 0 2px;
+    margin: 0 5px;
 }
 
 #slider .position .active {

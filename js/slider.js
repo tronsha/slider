@@ -28,18 +28,18 @@
             var $position = $slider.find('.position');
             $slider.children('.slides').find('img').each(function (index, element) {
                 that.settings.slides++;
-                var slide = that.settings.slides;
-                $position.append('<div class="points point' + slide + '"></div>');
-                var $point = $position.find('.point' + slide);
-                $point.click(function () {
-                    that.show(slide);
-                });
-                if (slide == that.settings.slide) {
+                if (that.settings.slides == that.settings.slide) {
                     $(element).addClass('active').css('opacity', '1');
-                    $point.addClass('active');
+                    $position.append('<div class="points active"></div>');
                 } else {
                     $(element).css('opacity', '0');
+                    $position.append('<div class="points"></div>');
                 }
+            });
+            $position.find('.points').each(function(index) {
+                $(this).click(function () {
+                    that.show(index + 1);
+                });
             });
             $slider.hover(function () {
                 clearInterval(timer);

@@ -26,8 +26,8 @@
     cursor: pointer;
     border: 16px solid #000000;
     position: absolute;
-    top: 192px;
-    z-index: 600;
+    top: 48%;
+    z-index: 620;
 }
 
 .slider .prev {

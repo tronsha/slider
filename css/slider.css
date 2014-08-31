@@ -84,11 +84,10 @@
 }
 
 .slider .text span {
+    display: none;
     position: absolute;
     bottom: 50px;
     left: 0;
-    height: auto;
-    width: auto;
     padding: 20px 20px;
     background-color: rgba(255, 255, 255, 0.8);
     color: #000000;
@@ -98,14 +97,10 @@
     z-index: 520;
 }
 
-.slider .text span {
-    display: none;
-}
-
-.slider .text span.active {
+.slider .text .active {
     display: block;
 }
 
-.slider .text span.hidden {
+.slider .text .hidden {
     display: none;
 }

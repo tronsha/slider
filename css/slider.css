@@ -45,6 +45,7 @@
 .slider .prev > div,
 .slider .next > div {
     border: 16px solid #000000;
+    font-size: 0;
 }
 
 .slider .prev > div {
@@ -69,14 +70,16 @@
 }
 
 .slider .position .points {
+    cursor: pointer;
     background-color: #000000;
     border-radius: 5px;
     box-shadow: 0 0 2px 1px #000000;
-    cursor: pointer;
-    display: inline-block;
     height: 8px;
     width: 8px;
     margin: 0 5px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
 }
 
 .slider .position .active {

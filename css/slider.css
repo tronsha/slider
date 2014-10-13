@@ -23,16 +23,20 @@
 
 .slider .next,
 .slider .prev {
-    cursor: pointer;
     position: absolute;
     top: 50%;
+    transform: translate(0, -50%);
     z-index: 540;
 }
 
 .slider .prev > *,
 .slider .next > * {
-    position: relative;
-    top: -8px;
+    cursor: pointer;
+}
+
+.slider .prev > img,
+.slider .next > img {
+    margin: 0 6px;
 }
 
 .slider .prev {

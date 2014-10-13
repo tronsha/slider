@@ -31,7 +31,8 @@
 
 .slider .prev > *,
 .slider .next > * {
-    top: -50%
+    position: relative;
+    top: -8px;
 }
 
 .slider .prev {

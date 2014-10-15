@@ -4,10 +4,6 @@
     "use strict";
 
     var pluginName = "slider";
-    var that;
-    var timer;
-    var slide = 1;
-    var slides = 0;
     var defaults = {
         delay: 1000,
         interval: 10000
@@ -16,6 +12,11 @@
     function Plugin(element, options) {
         this.element = element;
         this.settings = $.extend({}, defaults, options);
+        this.var = {
+            timer: undefined,
+            slide: 1,
+            slides: 0
+        };
         this._defaults = defaults;
         this._name = pluginName;
         this.init();
@@ -23,12 +24,12 @@
 
     Plugin.prototype = {
         init: function () {
-            that = this;
+            var self = this;
             var $slider = $(this.element);
             var $position = $slider.find('.position');
             $slider.children('.slides').find('img').each(function (index, element) {
-                slides++;
-                if (slides == slide) {
+                self.var.slides++;
+                if (self.var.slides == self.var.slide) {
                     $(element).addClass('active').css('opacity', '1');
                     $position.append('<div class="points active"></div>');
                 } else {
@@ -38,49 +39,50 @@
             });
             $position.find('.points').each(function (index) {
                 $(this).click(function () {
-                    that.show(index + 1);
+                    self.show(index + 1);
                 });
             });
             $slider.hover(function () {
-                clearInterval(timer);
+                clearInterval(self.var.timer);
             }, function () {
-                that.auto();
+                self.auto();
             });
             $slider.find('.prev > *').click(function () {
-                that.prev();
+                self.prev();
             });
             $slider.find('.next > *').click(function () {
-                that.next();
+                self.next();
             });
-            that.auto();
+            this.auto();
         },
         auto: function () {
-            timer = setInterval(function () {
-                that.next();
-            }, that.settings.interval);
+            var self = this;
+            this.var.timer = setInterval(function () {
+                self.next();
+            }, this.settings.interval);
         },
         next: function () {
-            if (slide < slides) {
-                that.show(slide + 1);
+            if (this.var.slide < this.var.slides) {
+                this.show(this.var.slide + 1);
             } else {
-                that.show(1);
+                this.show(1);
             }
         },
         prev: function () {
-            if (slide > 1) {
-                that.show(slide - 1);
+            if (this.var.slide > 1) {
+                this.show(this.var.slide - 1);
             } else {
-                that.show(slides);
+                this.show(this.var.slides);
             }
         },
         show: function (newSlide) {
-            $(that.element).find('.slides img:nth-child(' + slide + ')').stop().removeClass('active').animate({opacity: 0}, that.settings.delay);
-            $(that.element).find('.position .points:nth-child(' + slide + ')').removeClass('active');
-            $(that.element).find('.text span:nth-child(' + slide + ')').removeClass('active');
-            slide = newSlide;
-            $(that.element).find('.slides img:nth-child(' + slide + ')').stop().addClass('active').animate({opacity: 1}, that.settings.delay);
-            $(that.element).find('.position .points:nth-child(' + slide + ')').addClass('active');
-            $(that.element).find('.text span:nth-child(' + slide + ')').addClass('active');
+            $(this.element).find('.slides img:nth-child(' + this.var.slide + ')').stop().removeClass('active').animate({opacity: 0}, this.settings.delay);
+            $(this.element).find('.position .points:nth-child(' + this.var.slide + ')').removeClass('active');
+            $(this.element).find('.text span:nth-child(' + this.var.slide + ')').removeClass('active');
+            this.var.slide = newSlide;
+            $(this.element).find('.slides img:nth-child(' + this.var.slide + ')').stop().addClass('active').animate({opacity: 1}, this.settings.delay);
+            $(this.element).find('.position .points:nth-child(' + this.var.slide + ')').addClass('active');
+            $(this.element).find('.text span:nth-child(' + this.var.slide + ')').addClass('active');
             return this;
         }
     };

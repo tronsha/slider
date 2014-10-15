@@ -6,11 +6,11 @@
     var pluginName = "slider";
     var that;
     var timer;
+    var slide = 1;
+    var slides = 0;
     var defaults = {
         delay: 1000,
-        interval: 10000,
-        slide: 1,
-        slides: 0
+        interval: 10000
     };
 
     function Plugin(element, options) {
@@ -27,8 +27,8 @@
             var $slider = $(this.element);
             var $position = $slider.find('.position');
             $slider.children('.slides').find('img').each(function (index, element) {
-                that.settings.slides++;
-                if (that.settings.slides == that.settings.slide) {
+                slides++;
+                if (slides == slide) {
                     $(element).addClass('active').css('opacity', '1');
                     $position.append('<div class="points active"></div>');
                 } else {
@@ -60,32 +60,32 @@
             }, that.settings.interval);
         },
         next: function () {
-            if (that.settings.slide < that.settings.slides) {
-                that.show(that.settings.slide + 1);
+            if (slide < slides) {
+                that.show(slide + 1);
             } else {
                 that.show(1);
             }
         },
         prev: function () {
-            if (that.settings.slide > 1) {
-                that.show(that.settings.slide - 1);
+            if (slide > 1) {
+                that.show(slide - 1);
             } else {
-                that.show(that.settings.slides);
+                that.show(slides);
             }
         },
-        show: function (slide) {
-            $(that.element).find('.slides img:nth-child(' + that.settings.slide + ')').stop().removeClass('active').animate({opacity: 0}, that.settings.delay);
-            $(that.element).find('.position .points:nth-child(' + that.settings.slide + ')').removeClass('active');
-            $(that.element).find('.text span:nth-child(' + that.settings.slide + ')').removeClass('active');
-            that.settings.slide = slide;
-            $(that.element).find('.slides img:nth-child(' + that.settings.slide + ')').stop().addClass('active').animate({opacity: 1}, that.settings.delay);
-            $(that.element).find('.position .points:nth-child(' + that.settings.slide + ')').addClass('active');
-            $(that.element).find('.text span:nth-child(' + that.settings.slide + ')').addClass('active');
+        show: function (newSlide) {
+            $(that.element).find('.slides img:nth-child(' + slide + ')').stop().removeClass('active').animate({opacity: 0}, that.settings.delay);
+            $(that.element).find('.position .points:nth-child(' + slide + ')').removeClass('active');
+            $(that.element).find('.text span:nth-child(' + slide + ')').removeClass('active');
+            slide = newSlide;
+            $(that.element).find('.slides img:nth-child(' + slide + ')').stop().addClass('active').animate({opacity: 1}, that.settings.delay);
+            $(that.element).find('.position .points:nth-child(' + slide + ')').addClass('active');
+            $(that.element).find('.text span:nth-child(' + slide + ')').addClass('active');
             return this;
         }
     };
 
-    $.fn[ pluginName ] = function (options) {
+    $.fn[pluginName] = function (options) {
         this.each(function () {
             if (!$.data(this, "plugin_" + pluginName)) {
                 $.data(this, "plugin_" + pluginName, new Plugin(this, options));

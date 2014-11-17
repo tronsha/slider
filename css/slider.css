@@ -40,6 +40,13 @@
     opacity: 0.5;
 }
 
+.slider > .prev > .fa,
+.slider > .next > .fa {
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 40px;
+    margin: 0 10px;
+}
+
 .slider > .prev > div,
 .slider > .next > div {
     border: 16px solid #000000;

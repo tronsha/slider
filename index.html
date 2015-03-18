@@ -8,9 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/slider.css">
     <style>
-        * {margin: 0; padding: 0; border: 0;}
-        html {background-color: #cccccc;}
-        #slider {box-shadow: #888888 0px 15px 60px 10px;}
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        html {
+            background-color: #cccccc;
+        }
+
+        #slider {
+            box-shadow: #888888 0px 15px 60px 10px;
+        }
     </style>
 </head>
 <body>
@@ -23,17 +33,21 @@
         <img class="image5" src="slides/ff0000.png">
         <img class="image6" src="slides/ff00ff.png">
     </div>
-    <div class="prev"><div>&#160;</div></div>
-    <div class="next"><div>&#160;</div></div>
+    <div class="prev">
+        <div>&#160;</div>
+    </div>
+    <div class="next">
+        <div>&#160;</div>
+    </div>
     <div class="position"></div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/slider.js"></script>
 <script src="js/responsive.js"></script>
 <script>
-    jQuery(document).ready(function () {
-        jQuery("#slider").slider({delay: 1000, interval: 5000});
-    });
+    jQuery( document ).ready( function () {
+        jQuery( "#slider" ).slider( {delay: 1000, interval: 5000} );
+    } );
 </script>
 </body>
 </html>

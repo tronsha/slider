@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-<div id="slider" class="slider">
+<div id="slider" class="slider" style="margin-top: 100px; width: 600px; height: 480px;">
     <div class="slides">
         <img class="image1" src="slides/0000ff.png">
         <img class="image2" src="slides/00ffff.png">
@@ -34,20 +34,20 @@
         <img class="image6" src="slides/ff00ff.png">
     </div>
     <div class="prev">
-        <div>&#160;</div>
+        <img src="images/prev.png" alt="prev">
     </div>
     <div class="next">
-        <div>&#160;</div>
+        <img src="images/next.png" alt="next">
     </div>
     <div class="position"></div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="js/slider.js"></script>
-<script src="js/responsive.js"></script>
+<script src="../src/slider.js"></script>
+<script src="../src/responsive.js"></script>
 <script>
-    jQuery( document ).ready( function () {
-        jQuery( "#slider" ).slider( {delay: 1000, interval: 5000} );
-    } );
+    jQuery(document).ready(function () {
+        jQuery("#slider").slider({delay: 1000, interval: 5000});
+    });
 </script>
 </body>
 </html>

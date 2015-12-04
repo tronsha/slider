@@ -1,10 +1,10 @@
 window.onload = function () {
     sliderResize();
-}
+};
 
 window.onresize = function () {
     sliderResize();
-}
+};
 
 var sliderResize = function () {
     var $slider = jQuery('.slider');
@@ -20,7 +20,7 @@ var sliderResize = function () {
             $this.height(sliderHeight);
         }
     });
-}
+};
 
 var sliderResizeTextBox = function () {
     if (window.matchMedia('(max-width: 767px)').matches) {
@@ -35,4 +35,4 @@ var sliderResizeTextBox = function () {
         jQuery('.slider .text span').css('right', '');
         jQuery('.slider').css('margin-bottom', '');
     }
-}
+};

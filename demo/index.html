@@ -6,7 +6,7 @@
     <title>jQuery Slider</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="../dist/css/slider.min.css">
     <style>
         * {
             border: 0;
@@ -38,16 +38,15 @@
         <img class="image6" src="slides/ff00ff.png">
     </div>
     <div class="prev">
-        <img src="images/prev.png" alt="prev">
+        <img src="../dist/images/prev.png" alt="prev">
     </div>
     <div class="next">
-        <img src="images/next.png" alt="next">
+        <img src="../dist/images/next.png" alt="next">
     </div>
     <div class="position"></div>
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="../src/slider.js"></script>
-<script src="../src/responsive.js"></script>
+<script type='text/javascript' src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type='text/javascript' src="../dist/js/slider.min.js"></script>
 <script>
     jQuery(document).ready(function () {
         jQuery("#slider").slider({delay: 1000, interval: 5000});

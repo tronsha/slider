@@ -58,7 +58,9 @@
         auto: function () {
             var self = this;
             this.vari.timer = setInterval(function () {
-                self.next();
+                if (self.vari.slides > 1) {
+                    self.next();
+                }
             }, this.settings.interval);
         },
         next: function () {

@@ -6,7 +6,8 @@
     var pluginName = "slider";
     var defaults = {
         delay: 1000,
-        interval: 10000
+        interval: 10000,
+        random: false
     };
 
     function Plugin(element, options) {
@@ -53,7 +54,23 @@
             $slider.find('.next > *').click(function () {
                 self.next();
             });
-            this.auto();
+            if (this.settings.random === true) {
+                this.random();
+            } else {
+                this.auto();
+            }
+        },
+        random: function () {
+            var self = this;
+            this.vari.timer = setInterval(function () {
+                if (self.vari.slides > 1) {
+                    var number = 1 + Math.floor(Math.random() * (self.vari.slides - 1));
+                    if (number >= self.vari.slide) {
+                        number++;
+                    }
+                    self.show(number);
+                }
+            }, this.settings.interval);
         },
         auto: function () {
             var self = this;

@@ -54,31 +54,26 @@
             $slider.find('.next > *').click(function () {
                 self.next();
             });
-            if (this.settings.random === true) {
-                this.random();
-            } else {
-                this.auto();
-            }
-        },
-        random: function () {
-            var self = this;
-            this.vari.timer = setInterval(function () {
-                if (self.vari.slides > 1) {
-                    var number = 1 + Math.floor(Math.random() * (self.vari.slides - 1));
-                    if (number >= self.vari.slide) {
-                        number++;
-                    }
-                    self.show(number);
-                }
-            }, this.settings.interval);
+            this.auto();
         },
         auto: function () {
             var self = this;
             this.vari.timer = setInterval(function () {
                 if (self.vari.slides > 1) {
-                    self.next();
+                    if (self.settings.random === true) {
+                        self.random();
+                    } else {
+                        self.next();
+                    }
                 }
             }, this.settings.interval);
+        },
+        random: function () {
+            var number = 1 + Math.floor(Math.random() * (this.vari.slides - 1));
+            if (number >= this.vari.slide) {
+                number++;
+            }
+            this.show(number);
         },
         next: function () {
             if (this.vari.slide < this.vari.slides) {

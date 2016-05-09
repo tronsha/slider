@@ -57,14 +57,15 @@
             this.auto();
         },
         auto: function () {
+            if (this.settings.interval === 0 || this.vari.slides <= 1) {
+                return;
+            }
             var self = this;
             this.vari.timer = setInterval(function () {
-                if (self.vari.slides > 1) {
-                    if (self.settings.random === true) {
-                        self.random();
-                    } else {
-                        self.next();
-                    }
+                if (self.settings.random === true) {
+                    self.random();
+                } else {
+                    self.next();
                 }
             }, this.settings.interval);
         },

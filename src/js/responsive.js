@@ -18,8 +18,26 @@ var sliderResize = function () {
             var sliderWidth = $this.width();
             var sliderHeight = sliderWidth * imageHeight / imageWidth;
             $this.height(sliderHeight);
+            sliderResizeChange(sliderHeight);
         }
     });
+};
+
+var sliderResizeChange = function(sliderHeight) {
+    var $prevImage = jQuery('.slider .prev > img');
+    var $nextImage = jQuery('.slider .next > img');
+    if ($prevImage.length > 0) {
+        var prevImageHeight = parseInt($prevImage[0].naturalHeight);
+        $prevImage.css('max-height', prevImageHeight);
+        $prevImage.css('min-height', prevImageHeight / 2);
+        $prevImage.css('height', sliderHeight / 10);
+    }
+    if ($nextImage.length > 0) {
+        var nexImageHeight = parseInt($nextImage[0].naturalHeight);
+        $nextImage.css('max-height', nexImageHeight);
+        $nextImage.css('min-height', nexImageHeight / 2);
+        $nextImage.css('height', sliderHeight / 10);
+    }
 };
 
 var sliderResizeTextBox = function () {

@@ -27,7 +27,8 @@
         init: function () {
             var self = this;
             var $slider = $(this.element);
-            var $position = $slider.find('.position');
+            var $position = $slider.children('.position');
+            var $change = $slider.children('.prev, .next');
             $slider.children('.slides').find('img').each(function (index, element) {
                 self.vari.slides++;
                 if (self.vari.slides == self.vari.slide) {
@@ -38,6 +39,7 @@
                     $position.append('<div class="points"></div>');
                 }
             });
+            $change.animate({opacity: 0.5}, 'slow');
             $position.find('.points').each(function (index) {
                 $(this).click(function () {
                     self.show(index + 1);
@@ -45,8 +47,10 @@
             });
             $slider.hover(function () {
                 clearInterval(self.vari.timer);
+                $change.animate({opacity: 1}, 'slow');
             }, function () {
                 self.auto();
+                $change.animate({opacity: 0.5}, 'slow');
             });
             $slider.find('.prev > *').click(function () {
                 self.prev();

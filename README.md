@@ -3,6 +3,10 @@ Slider
 
 A jQuery Slider
 
+## Require
+
+* [jQuery][3]
+
 ## Creator
 
 **Stefan Hüsges**
@@ -17,3 +21,4 @@ A jQuery Slider
 
 [1]: http://www.mpcx.net
 [2]: https://github.com/tronsha
+[3]: https://jquery.com/

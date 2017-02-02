@@ -17,8 +17,13 @@
     z-index: 500;
 }
 
+.slider.no-js > .slides {
+    position: relative;
+}
+
 .slider.no-js > .slides > img {
     display: none;
+    position: relative;
 }
 
 .slider.no-js > .slides > img:first-child {

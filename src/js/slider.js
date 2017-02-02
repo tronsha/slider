@@ -29,6 +29,7 @@
             var $slider = $(this.element);
             var $position = $slider.children('.position');
             var $change = $slider.children('.prev, .next');
+            $slider.removeClass('no-js');
             $slider.children('.slides').find('img').each(function (index, element) {
                 self.vari.slides++;
                 if (self.vari.slides == self.vari.slide) {

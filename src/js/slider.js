@@ -7,7 +7,8 @@
     var defaults = {
         delay: 1000,
         interval: 10000,
-        random: false
+        random: false,
+        resize: false
     };
 
     function Plugin(element, options) {
@@ -103,7 +104,18 @@
             $(this.element).find('.slides img:nth-child(' + this.vari.slide + ')').stop().addClass('active').animate({opacity: 1}, this.settings.delay);
             $(this.element).find('.position .points:nth-child(' + this.vari.slide + ')').addClass('active');
             $(this.element).find('.text span:nth-child(' + this.vari.slide + ')').addClass('active');
+            if (this.settings.resize === true) {
+                this.resize();
+            }
             return this;
+        },
+        resize: function () {
+            var $image = $(this.element).find('.slides img:nth-child(' + this.vari.slide + ')');
+            var imageWidth = $image[0].naturalWidth;
+            var imageHeight = $image[0].naturalHeight;
+            var sliderWidth = $(this.element).width();
+            var sliderHeight = sliderWidth * imageHeight / imageWidth;
+            $(this.element).animate({height: sliderHeight}, this.settings.delay);
         }
     };
 

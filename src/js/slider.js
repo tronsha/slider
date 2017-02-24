@@ -110,7 +110,10 @@
             }
             return this;
         },
-        resize: function (animate) {
+        resize: function (disable, animate) {
+            if (disable === true) {
+                return;
+            }
             var $slider = $(this.element);
             var $activeImage = $slider.find('.slides .active');
             var $prevIcon = $slider.find('.prev > img');

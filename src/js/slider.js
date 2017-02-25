@@ -40,6 +40,12 @@
                     $(element).css('opacity', '0');
                     $position.append('<div class="points"></div>');
                 }
+                var href = $(element).attr('data-href');
+                if (href !== undefined) {
+                    $(element).click(function () {
+                        location.href = href;
+                    });
+                }
             });
             $change.animate({opacity: 0.5}, 'slow');
             $position.find('.points').each(function (index) {

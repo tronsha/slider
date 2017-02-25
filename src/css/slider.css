@@ -18,6 +18,10 @@
     z-index: 500;
 }
 
+.slider > .slides > img[data-href] {
+    cursor: pointer;
+}
+
 .slider.no-js > .slides {
     position: relative;
 }

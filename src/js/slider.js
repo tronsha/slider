@@ -18,7 +18,7 @@
             timer: undefined,
             slide: 1,
             slides: 0,
-            sequence: []
+            sequence: [1]
         };
         this._defaults = defaults;
         this._name = pluginName;
@@ -85,22 +85,15 @@
         random: function () {
             var next = this.vari.sequence.shift();
             if (this.vari.sequence.length === 0) {
+                var values = [];
+                for (var i = 1; i <= this.vari.slides; i++) {
+                    values.push(i);
+                }
                 if (next !== null && next !== undefined) {
-                    this.vari.sequence.push(next);
+                    this.vari.sequence.push(values.splice(next - 1, 1).shift());
                 }
                 do {
-                    var x = 1 + Math.floor(Math.random() * (this.vari.slides - this.vari.sequence.length - 1));
-                    do {
-                        if (jQuery.inArray(x, this.vari.sequence) === -1) {
-                            this.vari.sequence.push(x);
-                            break;
-                        } else {
-                            x++;
-                            if (x > this.vari.slides) {
-                                x = 1
-                            }
-                        }
-                    } while (true);
+                    this.vari.sequence.push(values.splice(Math.floor(Math.random() * (this.vari.slides - this.vari.sequence.length)), 1).shift());
                 } while (this.vari.sequence.length < this.vari.slides);
                 next = this.vari.sequence.shift();
             }

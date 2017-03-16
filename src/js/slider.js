@@ -17,7 +17,8 @@
         this.vari = {
             timer: undefined,
             slide: 1,
-            slides: 0
+            slides: 0,
+            sequence: []
         };
         this._defaults = defaults;
         this._name = pluginName;
@@ -82,11 +83,28 @@
             }, this.settings.interval);
         },
         random: function () {
-            var number = 1 + Math.floor(Math.random() * (this.vari.slides - 1));
-            if (number >= this.vari.slide) {
-                number++;
+            var next = this.vari.sequence.shift();
+            if (this.vari.sequence.length === 0) {
+                if (next !== null && next !== undefined) {
+                    this.vari.sequence.push(next);
+                }
+                do {
+                    var x = 1 + Math.floor(Math.random() * (this.vari.slides - this.vari.sequence.length - 1));
+                    do {
+                        if (jQuery.inArray(x, this.vari.sequence) === -1) {
+                            this.vari.sequence.push(x);
+                            break;
+                        } else {
+                            x++;
+                            if (x > this.vari.slides) {
+                                x = 1
+                            }
+                        }
+                    } while (true);
+                } while (this.vari.sequence.length < this.vari.slides);
+                next = this.vari.sequence.shift();
             }
-            this.show(number);
+            this.show(next);
         },
         next: function () {
             if (this.vari.slide < this.vari.slides) {

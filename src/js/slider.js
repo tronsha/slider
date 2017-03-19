@@ -43,14 +43,14 @@
                 }
                 var href = $(element).attr('data-href');
                 if (href !== undefined) {
-                    $(element).click(function () {
+                    $(element).on('click', function () {
                         location.href = href;
                     });
                 }
             });
             $change.animate({opacity: 0.5}, 'slow');
             $position.find('.points').each(function (index) {
-                $(this).click(function () {
+                $(this).on('click', function () {
                     self.show(index + 1);
                 });
             });
@@ -61,10 +61,10 @@
                 self.auto();
                 $change.animate({opacity: 0.5}, 'slow');
             });
-            $slider.find('.prev > *').click(function () {
+            $slider.find('.prev > *').on('click', function () {
                 self.prev();
             });
-            $slider.find('.next > *').click(function () {
+            $slider.find('.next > *').on('click', function () {
                 self.next();
             });
             this.auto();

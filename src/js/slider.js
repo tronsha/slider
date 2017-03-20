@@ -18,7 +18,7 @@
             timer: undefined,
             slide: 1,
             slides: 0,
-            sequence: [1]
+            sequence: []
         };
         this._defaults = defaults;
         this._name = pluginName;
@@ -91,10 +91,12 @@
                 }
                 if (next !== null && next !== undefined) {
                     this.vari.sequence.push(values.splice(next - 1, 1).shift());
+                } else {
+                    values.shift();
                 }
                 do {
-                    this.vari.sequence.push(values.splice(Math.floor(Math.random() * (this.vari.slides - this.vari.sequence.length)), 1).shift());
-                } while (this.vari.sequence.length < this.vari.slides);
+                    this.vari.sequence.push(values.splice(Math.floor(Math.random() * (values.length)), 1).shift());
+                } while (values.length > 0);
                 next = this.vari.sequence.shift();
             }
             this.show(next);

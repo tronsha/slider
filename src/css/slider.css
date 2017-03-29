@@ -121,13 +121,16 @@
 
 .slider > .text > span {
     background-color: rgba(255, 255, 255, 0.8);
-    bottom: 50px;
+    bottom: 5%;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
     color: #000000;
     display: none;
-    font-size: 20px;
+    font-size: 100%;
     left: 0;
-    line-height: 24px;
-    padding: 20px 20px;
+    line-height: 110%;
+    max-width: 95%;
+    padding: 2% 2% 2% 3%;
     position: absolute;
     text-align: left;
     z-index: 520;
@@ -139,4 +142,32 @@
 
 .slider > .text > .hidden {
     display: none;
+}
+
+.slider > .text > span > p {
+    margin: 0 0 4px 0;
+}
+
+.slider > .text > span > p:last-child {
+    margin: 0 0 0 0;
+}
+
+@media (max-width: 480px) {
+
+    .slider > .text > span {
+        background-color: rgba(0, 0, 0, 0.8);
+        bottom: 0;
+        border-radius: 6px;
+        color: #ffffff;
+        left: auto;
+        margin: 2% 5%;
+        max-height: 96%;
+        max-width: 90%;
+        overflow: hidden;
+        padding: 2%;
+        position: absolute;
+        text-align: center;
+        width: 90%;
+    }
+
 }

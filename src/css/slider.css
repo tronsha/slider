@@ -144,14 +144,6 @@
     display: none;
 }
 
-.slider > .text > span > p {
-    margin: 0 0 4px 0;
-}
-
-.slider > .text > span > p:last-child {
-    margin: 0 0 0 0;
-}
-
 @media (max-width: 480px) {
 
     .slider > .text > span {
@@ -165,7 +157,6 @@
         max-width: 90%;
         overflow: hidden;
         padding: 2%;
-        position: absolute;
         text-align: center;
         width: 90%;
     }
